@@ -2,6 +2,7 @@ package fr.diginamic.recensement;
 
 import java.util.Scanner;
 
+import exceptions.SaisieException;
 import fr.diginamic.recensement.entites.Recensement;
 import fr.diginamic.recensement.services.RechercheDepartementsPlusPeuplees;
 import fr.diginamic.recensement.services.RecherchePopulationBorneService;
@@ -57,17 +58,29 @@ public class Application {
 				rechercheVille.traiter(recensement, scanner);
 				break;
 			case 2:
+				try {
 				RecherchePopulationDepartementService rechercheDept = new RecherchePopulationDepartementService();
 				rechercheDept.traiter(recensement, scanner);
+				}catch (SaisieException e) {
+					System.err.println(e.getMessage());
+				}
 				break;
 			case 3:
+				try {
 				RecherchePopulationRegionService rechercheRegion = new RecherchePopulationRegionService();
 				rechercheRegion.traiter(recensement, scanner);
+				}catch (SaisieException e) {
+					System.err.println(e.getMessage());
+				}
 				break;
 			case 4:
+				try {
 				RecherchePopulationBorneService recherchePopBorne = new RecherchePopulationBorneService();
 				recherchePopBorne.traiter(recensement, scanner);
-				break;
+				}catch (SaisieException e) {
+					System.err.println(e.getMessage());
+				}
+				 break;
 			case 5:
 				RechercheVillesPlusPeupleesDepartement rechercheVillesPlusPeupleesDepartement = new RechercheVillesPlusPeupleesDepartement();
 				rechercheVillesPlusPeupleesDepartement.traiter(recensement, scanner);
@@ -77,8 +90,12 @@ public class Application {
 				rechercheVillesPlusPeupleesRegion.traiter(recensement, scanner);
 				break;
 			case 7:
+				try {
 				RechercheDepartementsPlusPeuplees rechercherDepartementsPlusPeuplees = new RechercheDepartementsPlusPeuplees();
 				rechercherDepartementsPlusPeuplees.traiter(recensement, scanner);
+				}catch (SaisieException e) {
+					System.err.println(e.getMessage());
+				}
 				break;
 			case 8:
 				RechercheRegionsPlusPeuplees rechercheRegionsPlusPeuplees = new RechercheRegionsPlusPeuplees();

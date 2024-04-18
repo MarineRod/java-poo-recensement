@@ -2,6 +2,7 @@ package fr.diginamic.recensement.services;
 
 import java.util.Scanner;
 
+import exceptions.SaisieException;
 import fr.diginamic.recensement.entites.Recensement;
 
 /**
@@ -19,5 +20,5 @@ public abstract class MenuService {
 	 * @param lignes  lignes du fichier
 	 * @param scanner scanner
 	 */
-	public abstract void traiter(Recensement recensement, Scanner scanner);
+	public abstract void traiter(Recensement recensement, Scanner scanner) throws SaisieException;
 }
